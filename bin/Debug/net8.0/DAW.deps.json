@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "DAW/1.0.0": {
+      "Daw/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "8.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.1",
@@ -14,7 +14,7 @@
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
-          "DAW.dll": {}
+          "Daw.dll": {}
         }
       },
       "Azure.Core/1.25.0": {
@@ -900,7 +900,7 @@
     }
   },
   "libraries": {
-    "DAW/1.0.0": {
+    "Daw/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

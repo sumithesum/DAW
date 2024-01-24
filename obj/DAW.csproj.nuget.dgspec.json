@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\DAW\\DAW\\DAW.csproj": {}
+    "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\Daw\\Daw\\Daw.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\DAW\\DAW\\DAW.csproj": {
+    "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\Daw\\Daw\\Daw.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\DAW\\DAW\\DAW.csproj",
-        "projectName": "DAW",
-        "projectPath": "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\DAW\\DAW\\DAW.csproj",
+        "projectUniqueName": "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\Daw\\Daw\\Daw.csproj",
+        "projectName": "Daw",
+        "projectPath": "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\Daw\\Daw\\Daw.csproj",
         "packagesPath": "C:\\Users\\Alex Sumurduc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\DAW\\DAW\\obj\\",
+        "outputPath": "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\Daw\\Daw\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="..\buildMultiTargeting\DAW.props" />
+  <Import Project="..\buildMultiTargeting\Daw.props" />
 </Project>

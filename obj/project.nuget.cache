@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8XgXiwCWBotRGAXCkNctIBlQOKz2cvYFbC/25UOpoKYfCXM7nO1jxigM57MjV/GvbZygfK+62XKFht4gw4esYw==",
+  "dgSpecHash": "RhNQJ/Pmv4FBMTMsRARxoFoLNZ7hlbLmZAmXJ9QI1Bx4kYERm1hGqEQF3bTlGRAmeQolgLo78p26RuzR5nu+pg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\DAW\\DAW\\DAW.csproj",
+  "projectFilePath": "C:\\Users\\Alex Sumurduc\\Desktop\\An2Sem1\\asp.net\\Daw\\Daw\\Daw.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alex Sumurduc\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Alex Sumurduc\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
