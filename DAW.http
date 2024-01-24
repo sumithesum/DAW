@@ -1,0 +1,6 @@
+@DAW_HostAddress = http://localhost:5095
+
+GET {{DAW_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
