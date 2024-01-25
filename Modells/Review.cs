@@ -8,6 +8,8 @@
 
         public string Text { get; set; }
 
+        public int rating { get; set; } 
+
         public ICollection<Review> Reviews { get; set; }
 
         public Reviewer Reviewer { get; set; }

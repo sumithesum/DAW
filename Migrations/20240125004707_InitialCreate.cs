@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DAW.Migrations
+namespace Daw.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -97,6 +97,7 @@ namespace DAW.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    rating = table.Column<int>(type: "int", nullable: false),
                     ReviewerId = table.Column<int>(type: "int", nullable: false),
                     GameID = table.Column<int>(type: "int", nullable: false),
                     ReviewID = table.Column<int>(type: "int", nullable: true)
@@ -189,14 +190,14 @@ namespace DAW.Migrations
                 column: "GameID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reviews_ReviewID",
-                table: "Reviews",
-                column: "ReviewID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Reviews_ReviewerId",
                 table: "Reviews",
                 column: "ReviewerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reviews_ReviewID",
+                table: "Reviews",
+                column: "ReviewID");
         }
 
         /// <inheritdoc />

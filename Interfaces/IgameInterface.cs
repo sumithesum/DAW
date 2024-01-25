@@ -6,6 +6,16 @@ namespace DAW.Interfaces
     {
         ICollection<Game> GetGames();
 
+        Game GetGame(int id);
+        Game GetGame(string name);
+
+
+        decimal GetScore(int gameid);
+
+        bool GameExists(int gameid);
+
+
+
 
     }
 }

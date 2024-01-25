@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DAW.Migrations
+namespace Daw.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240124193050_InitialCreate")]
+    [Migration("20240125004707_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -142,6 +142,9 @@ namespace DAW.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("rating")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
