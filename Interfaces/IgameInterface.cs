@@ -14,8 +14,13 @@ namespace DAW.Interfaces
 
         bool GameExists(int gameid);
 
+        bool CreateGame(Game game);
 
+        bool Save();
 
+        public bool UpdateGame(Game game);
+
+        public bool DeleteGame(Game game);
 
     }
 }

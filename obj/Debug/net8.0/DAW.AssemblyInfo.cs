@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Daw")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d55b848381cf00eb5543ace7d73c8de6299b71a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c451f22bff2f43336100510a193aa8652a03e0ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("Daw")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Daw")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

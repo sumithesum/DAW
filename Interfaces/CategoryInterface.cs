@@ -7,7 +7,6 @@ namespace Daw.Interfaces
         public ICollection<Category> GetCategories();
 
         Category GetCategory(int id);
-        Category GetCategory(string name);
 
         ICollection<Game>  GetGameByCategory(int categoryid);
         

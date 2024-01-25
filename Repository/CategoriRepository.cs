@@ -19,22 +19,18 @@ namespace Daw.Repository
 
         public ICollection<Category> GetCategories()
         {
-            throw new NotImplementedException();
+            return _context.Categories.ToList();
         }
 
         public Category GetCategory(int id)
         {
-            throw new NotImplementedException();
+            return _context.Categories.Where(c => c.ID == id).FirstOrDefault();
         }
 
-        public Category GetCategory(string name)
-        {
-            throw new NotImplementedException();
-        }
 
         public ICollection<Game> GetGameByCategory(int categoryid)
         {
-            throw new NotImplementedException();
+            return _context.GameCategories.Where(p  => p.CategoryID == categoryid).Select(c => c.Game).ToList();
         }
     }
 }

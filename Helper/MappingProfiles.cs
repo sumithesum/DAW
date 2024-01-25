@@ -8,6 +8,7 @@ namespace Daw.Helper
     {
         public MappingProfiles() {
             CreateMap<Game, GameDto>();
+            CreateMap<GameDto, Game>();
         }
     }
 }

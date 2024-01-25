@@ -78,5 +78,85 @@ namespace Daw.Controllers
 
             return Ok(rating);
         }
+
+        [HttpPost]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+
+        public IActionResult CreateGame([FromBody] GameDto gameCreate) {
+            
+            if (gameCreate == null)
+                return BadRequest(ModelState);
+
+            var game = _gameInterface.GetGames().Where(c => c.Name.ToLower() == gameCreate.Name.TrimEnd().ToLower())
+                .FirstOrDefault();
+
+            if(game != null)
+            {
+                ModelState.AddModelError("", "E deja un joc asa");
+                return StatusCode(422, ModelState);
+            }
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var gamemap = _mapper.Map<Game>(gameCreate);
+
+            if (!_gameInterface.CreateGame(gamemap)){
+                ModelState.AddModelError("", "Something went wrong");
+                return StatusCode(500, ModelState);
+            }
+            return Ok("Succes");
+        }
+
+        [HttpPut][ProducesResponseType(400)][ProducesResponseType(204)][ProducesResponseType(404)]
+
+        public IActionResult UpdateGame(int gameid, [FromBody] GameDto game) { 
+            
+            if(game == null) return BadRequest(ModelState);
+
+            if(gameid != game.ID)
+                return BadRequest(ModelState);
+
+            if (!_gameInterface.GameExists(gameid))
+            {
+                return NotFound();
+            }
+
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var gamemap = _mapper.Map<Game>(game);
+
+            if (!_gameInterface.UpdateGame(gamemap))
+            {
+                ModelState.AddModelError("","IDK CEVA LA UPDATE");
+                return StatusCode(500,ModelState);
+            }
+
+            return Ok("Suces");
+        }
+
+        [HttpDelete("{gameid}")][ProducesResponseType(400)][ProducesResponseType(204)][ProducesResponseType(404)]
+
+        public IActionResult DeleteGame(Game game,int gameid)
+        {
+            if(!_gameInterface.GameExists(game.ID)) { return NotFound(); }
+
+            var gametodel = _gameInterface.GetGame(gameid);
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            if (!_gameInterface.DeleteGame(gametodel))
+            {
+                ModelState.AddModelError("", "Nu am mers deletul frate");
+                return StatusCode(500,ModelState);
+            }
+
+            return Ok("Succes");
+
+
+        }
     }
 }
