@@ -1,3 +1,5 @@
+using Daw.Interfaces;
+using Daw.Repository;
 using DAW.Data;
 using DAW.Interfaces;
 using DAW.Repository;
@@ -9,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IgameInterface, GameRepository>();
+builder.Services.AddScoped<CategoryInterface, CategoryRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

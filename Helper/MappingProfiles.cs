@@ -4,11 +4,16 @@ using DAW.Modells;
 
 namespace Daw.Helper
 {
-    public class MappingProfiles :Profile
+    public class MappingProfiles : Profile
     {
         public MappingProfiles() {
             CreateMap<Game, GameDto>();
             CreateMap<GameDto, Game>();
+
+            CreateMap<Category, CategoryDto>();
+
+            CreateMap<CategoryDto, Category>();
+
         }
     }
 }
