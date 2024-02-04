@@ -11,9 +11,10 @@ namespace Daw.Helper
             CreateMap<GameDto, Game>();
 
             CreateMap<Category, CategoryDto>();
-
             CreateMap<CategoryDto, Category>();
 
+            CreateMap<SERVER, ServerDto>();
+            CreateMap<ServerDto,SERVER>();
         }
     }
 }
