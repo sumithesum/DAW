@@ -18,6 +18,12 @@ namespace Daw.Helper
 
             CreateMap<Player, PlayerDto>();
             CreateMap<PlayerDto, Player>();
+
+            CreateMap<Review, ReviewDto>();
+            CreateMap<ReviewDto, Review>();
+
+            CreateMap<Reviewer, ReviwerDto>();
+            CreateMap<ReviwerDto, Reviewer>();
         }
     }
 }

@@ -10,8 +10,6 @@
 
         public int rating { get; set; } 
 
-        public ICollection<Review> Reviews { get; set; }
-
         public Reviewer Reviewer { get; set; }
 
         public Game Game { get; set; }
