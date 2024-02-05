@@ -1,5 +1,10 @@
-﻿using Daw.DTO;
+﻿using AutoMapper;
+using Daw.DTO;
+using Daw.Interfaces;
 using Daw.Modells;
+using DAW.Interfaces;
+using DAW.Modells;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +22,32 @@ namespace Daw.Controllers
     {
         public static User user = new User();
         private readonly IConfiguration _congif;
+        private readonly UserInterface _userInterface;
+        private readonly IMapper _mapper;
+     
 
-        public UserController(IConfiguration congif)
+        public UserController(UserInterface userInterface, IMapper mapper, IConfiguration congif)
         {
             _congif = congif;
+            mapper = mapper;
+            _userInterface = userInterface;
+        }
+
+        [HttpGet, Authorize(Roles = "noob")]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
+
+        public IActionResult Getusers()
+        {
+
+
+            var users = _userInterface.GetUsers();
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return Ok(users);
         }
 
         [HttpPost("register")]
@@ -37,7 +64,7 @@ namespace Daw.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<String>> Login(UserDto rq)
         {
-            if(user.UserName !=  rq.UserName)
+            if (user.UserName != rq.UserName)
             {
                 return BadRequest("UserNotFound");
             }
@@ -47,12 +74,14 @@ namespace Daw.Controllers
             string token = CreateToken(rq);
             return Ok(token);
         }
+        
 
         private string CreateToken(UserDto user)
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.UserName)
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Role, "noob")
             };
 
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_congif.GetSection("AppSettings:Token").Value));

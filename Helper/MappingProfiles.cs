@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Daw.DTO;
+using Daw.Modells;
 using DAW.Modells;
 
 namespace Daw.Helper
@@ -24,6 +25,9 @@ namespace Daw.Helper
 
             CreateMap<Reviewer, ReviwerDto>();
             CreateMap<ReviwerDto, Reviewer>();
+
+            CreateMap<User, UserDto>();
+            CreateMap<UserDto, User>();
         }
     }
 }

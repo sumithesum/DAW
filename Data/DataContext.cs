@@ -1,4 +1,5 @@
-﻿using DAW.Modells;
+﻿using Daw.Modells;
+using DAW.Modells;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAW.Data
@@ -24,6 +25,8 @@ namespace DAW.Data
         public DbSet<Review> Reviews {  get; set; }
 
         public DbSet<Reviewer> Reviewers { get; set; }
+
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

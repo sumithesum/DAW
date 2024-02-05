@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using AutoMapper;
 using Daw.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Daw.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "noob")]
     public class GameController : Controller
     {
         private readonly IgameInterface _gameInterface;
