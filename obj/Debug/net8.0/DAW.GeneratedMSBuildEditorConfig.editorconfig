@@ -26,6 +26,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Alex Sumurduc\Desktop\An2Sem1\asp.net\Daw\Daw
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Alex Sumurduc/Desktop/An2Sem1/asp.net/Daw/Daw/Views/Players/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alex Sumurduc/Desktop/An2Sem1/asp.net/Daw/Daw/Views/Players/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alex Sumurduc/Desktop/An2Sem1/asp.net/Daw/Daw/Views/Players/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alex Sumurduc/Desktop/An2Sem1/asp.net/Daw/Daw/Views/Players/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Alex Sumurduc/Desktop/An2Sem1/asp.net/Daw/Daw/Views/Players/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Alex Sumurduc/Desktop/An2Sem1/asp.net/Daw/Daw/Views/SERVERs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU0VSVkVSc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

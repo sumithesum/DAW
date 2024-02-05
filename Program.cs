@@ -13,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IgameInterface, GameRepository>();
 builder.Services.AddScoped<CategoryInterface, CategoryRepository>();
 builder.Services.AddScoped<SERVERInterface,ServerRepository>();
+builder.Services.AddScoped<PlayerInterface, PlayerRepository>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
