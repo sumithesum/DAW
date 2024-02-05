@@ -4,6 +4,7 @@ using Daw.Interfaces;
 using Daw.Modells;
 using DAW.Interfaces;
 using DAW.Modells;
+using Humanizer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -82,6 +83,8 @@ namespace Daw.Controllers
                 ModelState.AddModelError("", "Something went wrong");
                 return StatusCode(500, ModelState);
             }
+            var refreshTokenUser = GenerateRefreshToken();
+            SetRefreshToken(refreshTokenUser, user);
             return Ok("Succes");
         }
 
@@ -154,7 +157,7 @@ namespace Daw.Controllers
 
             if (!_userInterface.DeleteUser(usertodel))
             {
-                ModelState.AddModelError("", "Nu am mers deletul frate");
+                ModelState.AddModelError("", "Nu a mers deletul ");
                 return StatusCode(500, ModelState);
             }
 
@@ -180,10 +183,60 @@ namespace Daw.Controllers
                  token = CreateTokenAdmin(rq);
             else
                  token = CreateTokenUser(rq);
+
+            var refreshToken = GenerateRefreshToken();
+            SetRefreshToken(refreshToken,user);
             return Ok(token);
         }
-        
+        [HttpPost("refresh-token")]
 
+         public async Task<ActionResult<string>> RefreshToken(User user)
+        {
+            var refreshToken = Request.Cookies["refreshToken"];
+            if (!user.RefreshToken.Equals(refreshToken))
+            {
+                return Unauthorized("Invalid Request");
+            }
+            else if ( user.TokenExpired < DateTime.Now)
+            {
+                return Unauthorized("Token Expired");
+            }
+            string token = string.Empty;
+            UserDto userDto = new UserDto();
+            userDto.UserName = user.UserName;
+ 
+            if (user.IsAdmin)
+                token = CreateTokenAdmin(userDto);
+            else
+                token = CreateTokenUser(userDto);
+
+            var refreshTokenUser = GenerateRefreshToken();
+            SetRefreshToken(refreshTokenUser, user);
+            return Ok(token);
+        }
+        private RefreshToken GenerateRefreshToken()
+        {
+            var refresh = new RefreshToken
+            {
+                Token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
+                Expire = DateTime.Now.AddDays(7)
+            };
+            return refresh;
+        }
+
+        private void SetRefreshToken(RefreshToken refreshToken,User user)
+        {
+            var cookieOpt = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = refreshToken.Expire
+            };
+            Response.Cookies.Append("refreshToken", refreshToken.Token,cookieOpt);
+
+            user.RefreshToken = refreshToken.Token;
+            user.TokenCreated = refreshToken.Created;
+            user.TokenExpired = refreshToken.Expire;
+        }
         private string CreateTokenAdmin(UserDto user)
         {
            
