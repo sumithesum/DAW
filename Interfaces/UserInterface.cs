@@ -13,6 +13,8 @@ namespace Daw.Interfaces
 
         bool CreateUser(User user);
 
+        bool UserExists(int userId);
+
         ICollection<User> GetUsers();
 
     }

@@ -51,5 +51,10 @@ namespace Daw.Repository
             _context.Update(user);
             return Save();
         }
+
+        public bool UserExists(int userId)
+        {
+            return _context.Users.Any(p => p.Id == userId);
+        }
     }
 }

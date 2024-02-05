@@ -13,7 +13,7 @@ namespace Daw.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "noob")]
+    [Authorize(Roles = "Admin")]
     public class GameController : Controller
     {
         private readonly IgameInterface _gameInterface;
