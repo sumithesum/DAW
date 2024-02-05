@@ -32,7 +32,7 @@ namespace Daw.Controllers
             _userInterface = userInterface;
         }
 
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "Admin")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
 
         public IActionResult Getusers()
@@ -85,12 +85,12 @@ namespace Daw.Controllers
             return Ok("Succes");
         }
 
-        [HttpPut]
+        [HttpPut("ToAdmin"), Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
 
-        public IActionResult Updateuser(int userid)
+        public IActionResult UpdateuserAdmin(int userid)
         {
 
 
@@ -112,7 +112,34 @@ namespace Daw.Controllers
             return Ok("Suces");
         }
 
-        [HttpDelete("{userid}")]
+        [HttpPut("ToUser"),Authorize(Roles = "Admin")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+
+        public IActionResult UpdateuserUser(int userid)
+        {
+
+
+
+
+            if (!_userInterface.UserExists(userid))
+            {
+                return NotFound();
+            }
+
+            User user = _userInterface.GetUser(userid);
+            user.IsAdmin = false;
+            if (!_userInterface.UpdateUser(user))
+            {
+                ModelState.AddModelError("", "IDK CEVA LA UPDATE");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Suces");
+        }
+
+        [HttpDelete("{userid}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]

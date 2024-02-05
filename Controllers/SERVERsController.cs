@@ -12,6 +12,7 @@ using System.Diagnostics.Metrics;
 using Daw.Repository;
 using Daw.Interfaces;
 using Daw.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Daw.Controllers
 {
@@ -69,7 +70,7 @@ namespace Daw.Controllers
             return Ok(SERVER);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public IActionResult CreateSERVER([FromBody] ServerDto SERVERCreate)
@@ -101,7 +102,7 @@ namespace Daw.Controllers
             return Ok("Successfully created");
         }
 
-        [HttpPut("{SERVERId}")]
+        [HttpPut("{SERVERId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
@@ -130,7 +131,7 @@ namespace Daw.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{SERVERId}")]
+        [HttpDelete("{SERVERId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]

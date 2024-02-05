@@ -11,6 +11,7 @@ using AutoMapper;
 using Daw.DTO;
 using Daw.Repository;
 using Daw.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Daw.Controllers
 {
@@ -102,7 +103,7 @@ namespace Daw.Controllers
             return Ok("Successfully created");
         }
 
-        [HttpPut("{reviewerId}")]
+        [HttpPut("{reviewerId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
@@ -132,7 +133,7 @@ namespace Daw.Controllers
         }
 
 
-        [HttpDelete("{reviewerId}")]
+        [HttpDelete("{reviewerId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]

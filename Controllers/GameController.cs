@@ -13,7 +13,6 @@ namespace Daw.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
     public class GameController : Controller
     {
         private readonly IgameInterface _gameInterface;
@@ -44,7 +43,7 @@ namespace Daw.Controllers
         }
 
 
-        [HttpGet("{gameId}")]
+        [HttpGet("{gameId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(200, Type = typeof(Game))]
         [ProducesResponseType(400)]
 
@@ -81,7 +80,7 @@ namespace Daw.Controllers
             return Ok(rating);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
 
@@ -111,7 +110,8 @@ namespace Daw.Controllers
             return Ok("Succes");
         }
 
-        [HttpPut][ProducesResponseType(400)][ProducesResponseType(204)][ProducesResponseType(404)]
+        [HttpPut, Authorize(Roles = "Admin")]
+        [ProducesResponseType(400)][ProducesResponseType(204)][ProducesResponseType(404)]
 
         public IActionResult UpdateGame(int gameid, [FromBody] GameDto game) { 
             
@@ -139,7 +139,8 @@ namespace Daw.Controllers
             return Ok("Suces");
         }
 
-        [HttpDelete("{gameid}")][ProducesResponseType(400)][ProducesResponseType(204)][ProducesResponseType(404)]
+        [HttpDelete("{gameid}"), Authorize(Roles = "Admin")]
+        [ProducesResponseType(400)][ProducesResponseType(204)][ProducesResponseType(404)]
 
         public IActionResult DeleteGame(Game game,int gameid)
         {

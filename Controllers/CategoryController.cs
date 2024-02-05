@@ -4,6 +4,7 @@ using Daw.Interfaces;
 using Daw.Repository;
 using DAW.Interfaces;
 using DAW.Modells;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Daw.Controllers
@@ -33,7 +34,7 @@ namespace Daw.Controllers
         }
 
 
-        [HttpGet("{categoryId}")]
+        [HttpGet("{categoryId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(200, Type = typeof(Category))]
         [ProducesResponseType(400)]
         public IActionResult GetCategory(int categoryId)
@@ -63,7 +64,7 @@ namespace Daw.Controllers
             return Ok(games);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public IActionResult CreateCategory([FromBody] CategoryDto categoryCreate)
@@ -95,7 +96,7 @@ namespace Daw.Controllers
             return Ok("Successfully created");
         }
 
-        [HttpPut("{categoryId}")]
+        [HttpPut("{categoryId}"),Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
@@ -124,7 +125,7 @@ namespace Daw.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{categoryId}")]
+        [HttpDelete("{categoryId}"),Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]

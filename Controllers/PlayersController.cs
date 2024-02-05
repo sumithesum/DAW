@@ -10,6 +10,7 @@ using DAW.Modells;
 using AutoMapper;
 using Daw.Interfaces;
 using Daw.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Daw.Controllers
 {
@@ -30,7 +31,7 @@ namespace Daw.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "Admin")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Player>))]
         public IActionResult GetPlayers()
         {
@@ -42,7 +43,7 @@ namespace Daw.Controllers
             return Ok(Players);
         }
 
-        [HttpGet("{PlayerId}")]
+        [HttpGet("{PlayerId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(200, Type = typeof(Player))]
         [ProducesResponseType(400)]
         public IActionResult GetPlayer(int PlayerId)
@@ -111,7 +112,7 @@ namespace Daw.Controllers
             return Ok("Successfully created");
         }
 
-        [HttpPut("{PlayerId}")]
+        [HttpPut("{PlayerId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
@@ -140,7 +141,7 @@ namespace Daw.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{PlayerId}")]
+        [HttpDelete("{PlayerId}"), Authorize(Roles = "Admin")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
